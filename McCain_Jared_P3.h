@@ -11,7 +11,6 @@ class Node {
 
     Node* next;
 
-    Node* prev;
 };
 
 template<typename E>
@@ -32,7 +31,7 @@ class PriorityQueue{
 
     void removeMin();
 
-    void min();
+    int min();
 
     int size() const;
 
@@ -51,19 +50,37 @@ PriorityQueue<E>::PriorityQueue(){
 template<typename E>
 
 void PriorityQueue<E>::insert(E& e){
-//INCOMPLETE NEEDS TO INSERT INTO FILE
+    Node* node = new Node();
+    node = head->data;
+    node->next = nullptr;
+    if (empty()){
+        head = node;
+        tail = node;
+    }
+    else {
+        tail->next = node;
+        tail = node;
+    }
 }
 
 template<typename E>
 
 void PriorityQueue<E>::removeMin(){
-//INCOMPLETE MAY NOT NEED
+    currentminimum = int min();
+for (Node* node = head; node != nullptr; node = node->next){
+    if (node->data == currentminimum)
+        node = node->next;
 }
-
+}
 template<typename E>
 
-void PriorityQueue<E>::min(){
-//INCOMPLETE
+int PriorityQueue<E>::min(){
+    int currentminimum = head->data;
+    for (Node* node = head; node != nullptr; node = node->next){
+    if (node->data < currentminimum)
+        currentminimum = node->data;
+    }
+    return currentminimum;
 }
 
 template<typename E>
