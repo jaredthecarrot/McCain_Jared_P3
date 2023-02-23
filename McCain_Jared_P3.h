@@ -2,9 +2,9 @@
 #define McCain_Jared_P3
 #include <fstream>
 
+template <typename E>
 
-
-class Node<E> template <class E>{
+class Node{
     public:
     
     E data;
@@ -13,9 +13,9 @@ class Node<E> template <class E>{
 
 };
 
-template<class E>
+template<typename E>
 
-class PriorityQueue<E>{
+class PriorityQueue{
     public:
 
     Node<E>* head;
@@ -23,20 +23,6 @@ class PriorityQueue<E>{
     Node<E>* tail;
 
     int countS;
-
-    PriorityQueue();
-    
-    bool empty() const;
-
-    void insert(E& e);
-
-    void removeMin();
-
-    int min();
-
-    int size() const;
-
-    template<typename E>
 
     PriorityQueue(){
 
@@ -46,9 +32,12 @@ class PriorityQueue<E>{
     }
 
 void insert(E& e){
-    Node* node = new Node();
-    node = e;
+    
+    Node<E>* node = new Node<E>;
+    node->data = e;
+
     node->next = nullptr;
+
     if (empty()){
         head = node;
         tail = node;
@@ -60,8 +49,13 @@ void insert(E& e){
     countS++;
 }
 void removeMin(){
-    int currentminimum = int min();
-for (Node* node = head; node != nullptr; node = node->next){
+
+    int currentminimum = head->data;
+    for (Node<E>* node = head; node != nullptr; node = node->next){
+    if (node->data < currentminimum)
+        currentminimum = node->data;
+    }
+for (Node<E>*node = head; node != nullptr; node = node->next){
     if (node->data == currentminimum)
         node = node->next;
 }
@@ -69,7 +63,7 @@ for (Node* node = head; node != nullptr; node = node->next){
 }
 int min(){
     int currentminimum = head->data;
-    for (Node* node = head; node != nullptr; node = node->next){
+    for (Node<E>* node = head; node != nullptr; node = node->next){
     if (node->data < currentminimum)
         currentminimum = node->data;
     }
