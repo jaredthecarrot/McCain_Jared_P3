@@ -1,10 +1,10 @@
-#ifndef McCain_Jared_P3.h
-#define McCain_Jared_P3.h
+#ifndef McCain_Jared_P3
+#define McCain_Jared_P3
 #include <fstream>
 
-template <typename E>
 
-class Node {
+
+class Node<E> template <class E>{
     public:
     
     E data;
@@ -13,19 +13,20 @@ class Node {
 
 };
 
-template<typename E>
-class PriorityQueue{
-    private:
+template<class E>
 
-    Node* head;
+class PriorityQueue<E>{
+    public:
 
-    Node* tail;
+    Node<E>* head;
+
+    Node<E>* tail;
 
     int countS;
 
-    public:
-
     PriorityQueue();
+    
+    bool empty() const;
 
     void insert(E& e);
 
@@ -35,23 +36,18 @@ class PriorityQueue{
 
     int size() const;
 
-    bool empty() const;
+    template<typename E>
 
-};
+    PriorityQueue(){
 
-template<typename E>
-
-PriorityQueue<E>::PriorityQueue(){
     head = nullptr;
 
     tail = nullptr;
-}
+    }
 
-template<typename E>
-
-void PriorityQueue<E>::insert(E& e){
+void insert(E& e){
     Node* node = new Node();
-    node = head->data;
+    node = e;
     node->next = nullptr;
     if (empty()){
         head = node;
@@ -61,20 +57,17 @@ void PriorityQueue<E>::insert(E& e){
         tail->next = node;
         tail = node;
     }
+    countS++;
 }
-
-template<typename E>
-
-void PriorityQueue<E>::removeMin(){
-    currentminimum = int min();
+void removeMin(){
+    int currentminimum = int min();
 for (Node* node = head; node != nullptr; node = node->next){
     if (node->data == currentminimum)
         node = node->next;
 }
+    countS--;
 }
-template<typename E>
-
-int PriorityQueue<E>::min(){
+int min(){
     int currentminimum = head->data;
     for (Node* node = head; node != nullptr; node = node->next){
     if (node->data < currentminimum)
@@ -83,15 +76,15 @@ int PriorityQueue<E>::min(){
     return currentminimum;
 }
 
-template<typename E>
-
-int PriorityQueue<E>::size() const {
+int size() const {
     return countS;
 }
 
-template<typename E>
-
-bool PriorityQueue<E>::empty() const {
+bool empty() const {
     return (head == nullptr);
 }
+
+};
+
+
 #endif
