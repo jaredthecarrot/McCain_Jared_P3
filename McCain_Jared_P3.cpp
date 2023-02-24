@@ -3,7 +3,7 @@
 
 int main(int c, char* argv[])
 {
-    std::cout << "Hello World!" << std::endl;
+   std::cout << "Hello World!" << std::endl;
 
     PriorityQueue<int> queue;
 

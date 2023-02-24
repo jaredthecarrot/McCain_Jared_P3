@@ -1,5 +1,5 @@
-#ifndef Sort_Algorithms.h
-#define Sort_Algorithms.h
+#ifndef Sort_Algorithms
+#define Sort_Algorithms
 #include "McCain_Jared_P3.h"
 
 #endif
