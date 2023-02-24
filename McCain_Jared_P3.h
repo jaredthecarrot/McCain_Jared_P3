@@ -1,6 +1,5 @@
 #ifndef McCain_Jared_P3
 #define McCain_Jared_P3
-#include <fstream>
 
 template <typename E>
 
