@@ -4,7 +4,7 @@
 #include <cstdlib>
 using namespace std;
 
-int main()
+int main(int c, char* argv[])
 {   
     PriorityQueue queue;
     fstream file;
@@ -22,13 +22,7 @@ int main()
 
     int x;
 
-    cout << "1. Selection Sort" << endl;
-
-    cout << "2. Insertion Sort" << endl;
-
-    cout << "3. Bubble Sort" << endl;
-
-    cin >> x;
+    x = atoi(argv[1]);
 
     switch (x){
         case 1:
@@ -41,7 +35,8 @@ int main()
         bubble_sort();
         break;
         default:
-        cout << "Invalid input";
+        cout << "Invalid input\n";
+        cout << "Enter 1 for selection sort, 2 for insertion sort, or 3 for bubble sort:";
         break;
     }
 
