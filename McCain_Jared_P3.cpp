@@ -11,11 +11,11 @@ int main()
     file.open("numbers.txt");
     ios::app;
     srand(time(NULL));
-    int y = rand() % 25000 + 1;
+    long y = rand() % 25000 + 1;
     file << y << endl;
     for (int i = 0; i < y; i++)
     {   
-        int num = rand();
+        long num = rand();
         file << num << endl;
     }
     file.close();
@@ -34,9 +34,9 @@ int main()
         case 1:
         queue.selection_sort();
         break;
-        /*case 2:
+        case 2:
         queue.insertion_sort();
-        break;*/
+        break;
         case 3:
         bubble_sort();
         break;

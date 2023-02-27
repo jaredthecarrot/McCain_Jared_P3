@@ -110,7 +110,7 @@ void selection_sort(){
     oFile.close();
 }
 
-/*void insertion_sort(){
+void insertion_sort(){
     ifstream iFile;
     ofstream oFile;
     
@@ -118,21 +118,33 @@ void selection_sort(){
     oFile.open("output.txt");
     ios::app;
     PriorityQueue queue;
-    long size;
+    int size;
     cout << endl;
     iFile >> size;
     cout << size << endl;
-    long long array[size];
+    int array[size];
     int number;
-    while (iFile >> number){
+    while (iFile >> number){ // working
         int i = 0;
-        array[i] = number;
-        cout << array[i] << endl;
+        array[i] = number; 
         i++;
+    }
+    // sort array
+    for (int i = 1; i < size; i++){
+        int j = i;
+        while (j > 0 && array[j - 1] > array[j]){
+            int temp = array[j];
+            array[j] = array[j - 1];
+            array[j - 1] = temp;
+            j--;
+        }
+    }
+    for (int i = 0; i < size; i++){
+        oFile << array[i] << endl;
     }
     iFile.close();
     oFile.close();
-}*/
+}
 };
 
 void bubble_sort(){
