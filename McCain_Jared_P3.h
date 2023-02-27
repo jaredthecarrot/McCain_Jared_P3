@@ -120,7 +120,12 @@ void insertion_sort(){
     PriorityQueue queue;
     int size;
     iFile >> size;
-    int array[size];
+    int array[size], number, i = 0;
+    while (iFile >> number){
+        array[i] = number;
+        i++;
+    }
+    // PLACEHOLDER NEED INSERTION SORT
     iFile.close();
     oFile.close();
 }
@@ -138,7 +143,7 @@ void bubble_sort(){
     int number;
     int array[size];
     int i = 0, j = 0;
-    while (iFile >> number && i < size){
+    while (iFile >> number){
         array[i] = number;
         //cout << array[i] << endl;
         i++;
