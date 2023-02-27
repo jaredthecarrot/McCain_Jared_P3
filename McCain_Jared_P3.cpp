@@ -13,6 +13,12 @@ int main()
         case 1:
         queue.selection_sort();
         break;
+        case 2:
+        queue.insertion_sort();
+        break;
+        case 3:
+        bubble_sort();
+        break;
         default:
         cout << "Invalid input";
         break;

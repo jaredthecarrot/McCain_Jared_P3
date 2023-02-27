@@ -112,19 +112,62 @@ void selection_sort(){
 void insertion_sort(){
     ifstream iFile;
     ofstream oFile;
+    ios::app;
     iFile.open("numbers.txt");
     oFile.open("output.txt");
     PriorityQueue queue;
     int size;
     iFile >> size;
     int number;
+    int array[size];
+    int j = 1;
     while (iFile >> number){
-        if ()
-        queue.insert(number);
+        int i = 0;
+        array[i] = number;
+        i++;
+    }
+    for (int i = 0; i < size; i++)
+    {
+        for (int j = 1; j < size; j++)
+        {
+            if (array[i] > array[j] && !(j > size - 1))
+            {
+                int temp = array[i];
+                array[i] = array[j];
+                array[j] = temp;
+            }
+        }
+        queue.insert(array[i]);
+    }
+    while (!queue.empty()){
+    oFile << queue.removeMin() << endl;
     }
 
+    iFile.close();
+    oFile.close();
 }
 };
+
+void bubble_sort(){ // code bubble sort
+    ifstream iFile;
+    ofstream oFile;
+    iFile.open("numbers.txt");
+    oFile.open("output.txt");
+    int size;
+    iFile >> size;
+    int number;
+    int array[size];
+    while (iFile >> number){
+        int i = 0;
+        array[i] = number;
+        i++;
+    }
+    for (int i = 0; i < size; i++){
+        oFile << array[i] << endl;
+    }
+    iFile.close();
+    oFile.close();
+}
 
 
 #endif
