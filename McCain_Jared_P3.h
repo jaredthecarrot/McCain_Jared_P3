@@ -1,25 +1,24 @@
 #ifndef McCain_Jared_P3
 #define McCain_Jared_P3
-
-template <typename E>
+#include <fstream>
+#include <iostream>
+using namespace std;
 
 class Node{
     public:
     
-    E data;
+    int data;
 
     Node* next;
 
 };
 
-template<typename E>
-
 class PriorityQueue{
     public:
 
-    Node<E>* head;
+    Node* head;
 
-    Node<E>* tail;
+    Node* tail;
 
     int countS;
 
@@ -28,11 +27,13 @@ class PriorityQueue{
     head = nullptr;
 
     tail = nullptr;
+
+    countS = 0;
     }
 
-void insert(E& e){
+void insert(int e){
     
-    Node<E>* node = new Node<E>;
+    Node* node = new Node();
     node->data = e;
 
     node->next = nullptr;
@@ -47,22 +48,34 @@ void insert(E& e){
     }
     countS++;
 }
-void removeMin(){
-
+int removeMin(){
     int currentminimum = head->data;
-    for (Node<E>* node = head; node != nullptr; node = node->next){
+    for (Node* node = head; node != nullptr; node = node->next){
     if (node->data < currentminimum)
         currentminimum = node->data;
     }
-for (Node<E>*node = head; node != nullptr; node = node->next){
-    if (node->data == currentminimum)
-        node = node->next;
-}
+    Node* current = head;
+    Node* previous = nullptr;
+    while (current->data != currentminimum){
+        previous = current;
+        current = current->next;
+    }
+    if (previous == nullptr){
+        head = current->next;
+    }
+    else {
+        previous->next = current->next;
+    }
+    if (current == tail){
+        tail = previous;
+    }
+
     countS--;
+    return current->data;
 }
 int min(){
     int currentminimum = head->data;
-    for (Node<E>* node = head; node != nullptr; node = node->next){
+    for (Node* node = head; node != nullptr; node = node->next){
     if (node->data < currentminimum)
         currentminimum = node->data;
     }
@@ -77,6 +90,40 @@ bool empty() const {
     return (head == nullptr);
 }
 
+void selection_sort(){
+    ifstream iFile;
+    ofstream oFile;
+    iFile.open("numbers.txt");
+    oFile.open("output.txt");
+    PriorityQueue queue;
+    int size;
+    iFile >> size;
+    int number;
+    while (iFile >> number){
+        queue.insert(number);
+    }
+    while (!queue.empty()){
+        oFile << queue.removeMin() << endl;
+    }
+    iFile.close();
+    oFile.close();
+}
+
+void insertion_sort(){
+    ifstream iFile;
+    ofstream oFile;
+    iFile.open("numbers.txt");
+    oFile.open("output.txt");
+    PriorityQueue queue;
+    int size;
+    iFile >> size;
+    int number;
+    while (iFile >> number){
+        if ()
+        queue.insert(number);
+    }
+
+}
 };
 
 

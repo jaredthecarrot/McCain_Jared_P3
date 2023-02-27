@@ -1,15 +1,23 @@
 #include "McCain_Jared_P3.h"
 #include <iostream>
+#include <fstream>
+using namespace std;
 
-int main(int c, char* argv[])
-{
-   std::cout << "Hello World!" << std::endl;
-
-    PriorityQueue<int> queue;
-
-    for (int i = 0; i < 25000; i++)
-    {
-        queue.insert(i);
+int main()
+{   
+    PriorityQueue queue;
+    
+    int x;
+    cin >> x;
+    switch (x){
+        case 1:
+        queue.selection_sort();
+        break;
+        default:
+        cout << "Invalid input";
+        break;
     }
+
     return 0;
 }
+    
