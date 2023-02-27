@@ -31,7 +31,7 @@ class PriorityQueue{
     countS = 0;
     }
 
-void insert(int e){
+void insert(long e){
     
     Node* node = new Node();
     node->data = e;
@@ -110,7 +110,7 @@ void selection_sort(){
     oFile.close();
 }
 
-void insertion_sort(){
+/*void insertion_sort(){
     ifstream iFile;
     ofstream oFile;
     
@@ -118,38 +118,21 @@ void insertion_sort(){
     oFile.open("output.txt");
     ios::app;
     PriorityQueue queue;
-    int size;
+    long size;
+    cout << endl;
     iFile >> size;
-    int array[size];
+    cout << size << endl;
+    long long array[size];
     int number;
     while (iFile >> number){
         int i = 0;
         array[i] = number;
+        cout << array[i] << endl;
         i++;
-    }
-
-    for (int i = 0; i < size; i++){
-        for (int j = 0; j < size - 1; j++){
-            if (array[j] > array[j + 1]){
-                int temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-            }
-        }
-    }
-    int i = 0;
-    while (i < size){
-        int i = 0;
-        queue.insert(array[i]);
-        i++;
-    }
-
-    while (!queue.empty()){
-        oFile << queue.removeMin() << endl;
     }
     iFile.close();
     oFile.close();
-}
+}*/
 };
 
 void bubble_sort(){
