@@ -125,7 +125,6 @@ void insertion_sort(){
         array[i] = number;
         i++;
     }
-    // PLACEHOLDER NEED INSERTION SORT
     iFile.close();
     oFile.close();
 }
@@ -166,6 +165,5 @@ void bubble_sort(){
     iFile.close();
     oFile.close();
 }
-
 
 #endif
