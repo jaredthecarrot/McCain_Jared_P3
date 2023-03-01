@@ -126,7 +126,7 @@ void insertion_sort(){
         i++;
     }
     
-    for (int i = 0; i < size; i++){
+    /*for (int i = 0; i < size; i++){ // bubblesort
         for (int j = 0; j < size - 1; j++){
             if (array[j] > array[j + 1]){
                 int temp = array[j];
@@ -134,6 +134,18 @@ void insertion_sort(){
                 array[j + 1] = temp;
             }
         }
+    }*/
+
+    int min;
+
+    for (i = 1; i < size; i++){
+        min = array[i];
+        int j = i - 1;
+        while (j >= 0 && array[j] > min){
+            array[j + 1] = array[j];
+            j--;
+        }
+        array[j + 1] = min;
     }
 
     for (i = 0; i < size; i++){
