@@ -99,13 +99,17 @@ void selection_sort(){
     PriorityQueue queue;
     int size;
     iFile >> size;
+    cout << "Grabbing size of text file..." << endl;
     int number;
+    cout << "Entering text file data into priority queue..." << endl;
     while (iFile >> number){
         queue.insert(number);
     }
+    cout << "Sorting data..." << endl;
     while (!queue.empty()){
         oFile << queue.removeMin() << endl;
     }
+    cout << "Data sorted and outputted to output.txt" << endl;
     iFile.close();
     oFile.close();
 }
@@ -120,24 +124,17 @@ void insertion_sort(){
     PriorityQueue queue;
     int size;
     iFile >> size;
+    cout << "Grabbing size of text file..." << endl;
     int array[size], number, i = 0;
+    cout << "Entering text file data into array..." << endl;
     while (iFile >> number){
         array[i] = number;
         i++;
     }
-    
-    /*for (int i = 0; i < size; i++){ // bubblesort
-        for (int j = 0; j < size - 1; j++){
-            if (array[j] > array[j + 1]){
-                int temp = array[j];
-                array[j] = array[j + 1];
-                array[j + 1] = temp;
-            }
-        }
-    }*/
 
     int min;
-
+    
+    cout << "Sorting data..." << endl;
     for (i = 1; i < size; i++){
         min = array[i];
         int j = i - 1;
@@ -147,14 +144,19 @@ void insertion_sort(){
         }
         array[j + 1] = min;
     }
+    
+    cout << "Entering sorted data into priority queue..." << endl;
 
     for (i = 0; i < size; i++){
         queue.insert(array[i]);
     }
 
+
     while (!queue.empty()){
         oFile << queue.removeMin() << endl;
     }
+
+    cout << "Data sorted and outputted to output.txt" << endl;
 
     iFile.close();
     oFile.close();
@@ -169,16 +171,18 @@ void bubble_sort(){
     ios::app;
     int size;
     iFile >> size;
-    //cout << size << endl;
+    cout << "Grabbing size of text file..." << endl;
     int number;
     int array[size];
     int i = 0, j = 0;
+    cout << "Entering text file data into array..." << endl;
     while (iFile >> number){
         array[i] = number;
         //cout << array[i] << endl;
         i++;
     }
 
+    cout << "Sorting data..." << endl;
     for (i = 0; i < size; i++){
         for (j = 0; j < size - 1; j++){
             if (array[j] > array[j + 1]){
@@ -193,6 +197,8 @@ void bubble_sort(){
         oFile << array[i] << endl;
     }
     
+    cout << "Data sorted and outputted to output.txt" << endl;
+
     iFile.close();
     oFile.close();
 }
