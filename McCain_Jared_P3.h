@@ -125,7 +125,25 @@ void insertion_sort(){
         array[i] = number;
         i++;
     }
-    // PLACEHOLDER NEED INSERTION SORT
+    
+    for (int i = 0; i < size; i++){
+        for (int j = 0; j < size - 1; j++){
+            if (array[j] > array[j + 1]){
+                int temp = array[j];
+                array[j] = array[j + 1];
+                array[j + 1] = temp;
+            }
+        }
+    }
+
+    for (i = 0; i < size; i++){
+        queue.insert(array[i]);
+    }
+
+    while (!queue.empty()){
+        oFile << queue.removeMin() << endl;
+    }
+
     iFile.close();
     oFile.close();
 }
@@ -166,6 +184,5 @@ void bubble_sort(){
     iFile.close();
     oFile.close();
 }
-
 
 #endif
