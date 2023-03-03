@@ -50,7 +50,7 @@ void insert(long e){
 }
 int removeMin(){
     int currentminimum = head->data;
-    for (Node* node = head; node != nullptr; node = node->next){
+    for (Node* node = head; node != nullptr; node = node->next){ //iterator
     if (node->data < currentminimum)
         currentminimum = node->data;
     }
@@ -75,7 +75,7 @@ int removeMin(){
 }
 int min(){
     int currentminimum = head->data;
-    for (Node* node = head; node != nullptr; node = node->next){
+    for (Node* node = head; node != nullptr; node = node->next){ // iterator
     if (node->data < currentminimum)
         currentminimum = node->data;
     }
@@ -102,11 +102,11 @@ void selection_sort(){
     cout << "Grabbing size of text file..." << endl;
     int number;
     cout << "Entering text file data into priority queue..." << endl;
-    while (iFile >> number){
+    while (iFile >> number){ // enters unsorted into priority queue
         queue.insert(number);
     }
     cout << "Sorting data..." << endl;
-    while (!queue.empty()){
+    while (!queue.empty()){ // removeMin function will sort data
         oFile << queue.removeMin() << endl;
     }
     cout << "Data sorted and outputted to output.txt" << endl;
@@ -127,7 +127,7 @@ void insertion_sort(){
     cout << "Grabbing size of text file..." << endl;
     int array[size], number, i = 0;
     cout << "Entering text file data into array..." << endl;
-    while (iFile >> number){
+    while (iFile >> number){ // enters unsorted into array
         array[i] = number;
         i++;
     }
@@ -135,7 +135,7 @@ void insertion_sort(){
     int min;
     
     cout << "Sorting data..." << endl;
-    for (i = 1; i < size; i++){
+    for (i = 1; i < size; i++){ // sorts array
         min = array[i];
         int j = i - 1;
         while (j >= 0 && array[j] > min){
@@ -147,12 +147,12 @@ void insertion_sort(){
     
     cout << "Entering sorted data into priority queue..." << endl;
 
-    for (i = 0; i < size; i++){
+    for (i = 0; i < size; i++){ // enters sorted array into priority queue
         queue.insert(array[i]);
     }
 
 
-    while (!queue.empty()){
+    while (!queue.empty()){ // removeMin function will sort data
         oFile << queue.removeMin() << endl;
     }
 
@@ -176,14 +176,14 @@ void bubble_sort(){
     int array[size];
     int i = 0, j = 0;
     cout << "Entering text file data into array..." << endl;
-    while (iFile >> number){
+    while (iFile >> number){ // enters unsorted into array
         array[i] = number;
         //cout << array[i] << endl;
         i++;
     }
 
     cout << "Sorting data..." << endl;
-    for (i = 0; i < size; i++){
+    for (i = 0; i < size; i++){ // sorts array
         for (j = 0; j < size - 1; j++){
             if (array[j] > array[j + 1]){
                 int temp = array[j];
@@ -193,7 +193,7 @@ void bubble_sort(){
         }
     }
 
-    for (i = 0; i < size; i++){
+    for (i = 0; i < size; i++){ // outputs sorted array to output.txt
         oFile << array[i] << endl;
     }
     

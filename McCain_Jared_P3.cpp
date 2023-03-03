@@ -10,6 +10,8 @@ int main(int c, char* argv[])
     fstream file;
     file.open("numbers.txt");
     ios::app;
+
+    //Will randomly generate a list of numbers and put them in numbers.txt
     srand(time(NULL));
     long y = rand() % 25000 + 1;
     file << y << endl;
@@ -35,8 +37,8 @@ int main(int c, char* argv[])
         bubble_sort();
         break;
         default:
-        cout << "Invalid input\n";
-        cout << "Enter 1 for selection sort, 2 for insertion sort, or 3 for bubble sort:";
+        cout << "Invalid input for command line argument\n";
+        cout << "Enter 1 for selection sort, 2 for insertion sort, or 3 for bubble sort in command line argument\n";
         break;
     }
 
